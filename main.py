@@ -1,8 +1,8 @@
-import os
+from pathlib import Path
 
-# One-line pitch: retired racing pigeons deliver handwritten apologies.
-LINE = "We train retired racing pigeons to deliver handwritten apologies across the city for $12 each, because forgetful husbands pay gladly when sorry arrives by bird, not by text."
+line = "We rent out trained goats to clear your garden weeds for $19 a visit, because a goat eats what a mower misses and never asks for a day off."
 
-os.makedirs("/output", exist_ok=True)
-with open("/output/entry.txt", "w", encoding="utf-8") as f:
-    f.write(LINE)
+out = Path("/output/entry.txt")
+out.parent.mkdir(parents=True, exist_ok=True)
+out.write_text(line, encoding="utf-8")
+print(len(line))
